@@ -6,7 +6,6 @@ function App(){
   return(
    <div className="App">
     <div className="container">
-    Weather App
    <Weather/>
     <footer>
       This project was coded by{""} <a href="https://www.linkedin.com/in/boitumelo-thindiza-222049159/" target="_blank"> Boitumelo Thindiza </a>{""} and is {""}
