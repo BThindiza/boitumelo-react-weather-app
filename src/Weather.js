@@ -1,5 +1,6 @@
 import React , {useState} from "react";
-import formatDate from "./formatDate";
+import WeatherInfo from "./weatherInfo";
+import WeatherTemperature from "./WeatherTemperature";
 import axios  from "axios";
 import "./Weather.css";
 
@@ -32,7 +33,7 @@ export default function weather(props){
         let apiKey ="6ee72f51667c1ac4a6bc6bfa1cc12d42";
         let city = "Polokwane";
         let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleReseponse);
+        axios.get(apiUrl).then(handleResponse);
     }
 
     if (weatherData.ready){
