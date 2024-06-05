@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props){
  let [loaded, setLoaded]= useState(false);
- let [forecast, setForecast]=useState(null);
+ let [forecast, setForecast]= useState(null);
 
  useEffect(() =>{
     setLoaded(false);
@@ -23,7 +24,8 @@ export default function WeatherForecast(props){
 
     axios.get(apiUrl).then(handleResponse);
  }
- if(loaded){
+ 
+ if (loaded) {
     return(
         <div className="WeatherForecast">
             <div className="row">
