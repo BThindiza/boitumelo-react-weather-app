@@ -1,14 +1,14 @@
 import React , {useState} from "react";
-import WeatherInfo from "./weatherInfo";
-import WeatherForecast from "./WeatherForecast";
+import WeatherForecastDay from "./WeatherForecastDay";
 import axios  from "axios";
 import "./Weather.css";
 
 
 export default function weather(props){
-     let [weatherData,setWeatherData] = useState({ready: false});
-    function handleResponse(response){
-        setReady(true);
+     let [WeatherData,setWeatherData] = useState({ready: false});
+    let [city, setCity]= useState(props.defaultCity);
+    
+     function handleResponse(response){
         setWeatherData({
             ready: true,
             temperature: response.data.main.temp,
@@ -17,7 +17,8 @@ export default function weather(props){
         icon:response.data.weather[0].icon,
             date: new Date (response.data.dt*1000),
             wind: response.data.wind.speed,
-            city:response.data.name
+            city:response.data.name,
+            coordinates: response.data.coord,
         });
         
     }
@@ -31,12 +32,11 @@ export default function weather(props){
     
     function search(){
         let apiKey ="6ee72f51667c1ac4a6bc6bfa1cc12d42";
-        let city = "Polokwane";
         let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         axios.get(apiUrl).then(handleResponse);
     }
 
-    if (weatherData.ready){
+    if (WeatherData.ready){
     return(
 <div className="Weather">
 <form onSubmit={handleSubmit}>
@@ -49,8 +49,8 @@ export default function weather(props){
     </div>
     </div>
 </form>
-<WeatherInfo data={weatherData}/>
-<WeatherForecast coordinates={weatherData.coordinates}/>
+<WeatherInfo data={WeatherData}/>
+<WeatherForecast coordinates={WeatherData.coordinates}/>
     </div>
 );
     }else {
