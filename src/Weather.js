@@ -4,7 +4,7 @@ import axios  from "axios";
 import "./Weather.css";
 
 
-export default function weather(props){
+export default function Weather(props){
      let [WeatherData,setWeatherData] = useState({ready: false});
     let [city, setCity]= useState(props.defaultCity);
     
