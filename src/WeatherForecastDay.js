@@ -1,8 +1,10 @@
 import React from "react";
-import weatherIcon from "./WeatherIcon";
-import 
+import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecastDay.css";
 
-export default function WeatherForecastDay(props){
+
+
+export default function WeatherForecastDay(props) {
 function day(){
     let date = new Date(props.data.dt * 1000);
     let day = date.getDay();
@@ -10,6 +12,7 @@ function day(){
      return days[day];
 
 }
+
 function formatForecastTemperatures(temp){
     let celsiusTemp = Math.round(temp);
     let farenheitTemp = Math.round((temp * 9)/5+32);

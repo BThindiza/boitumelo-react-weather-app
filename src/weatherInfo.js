@@ -4,6 +4,14 @@ import WeatherIcon from "./WeatherIcon";
 import "./WeatherInfo.css";
 
 export default function WeatherInfo(props){
+    function formatWind(){
+        if (props.unit === "celsius"){
+            return `${Math.round(props.data.wind)} Km/h`;
+        } else{
+            return `${Math.round(props.data.wind * 0.62)} mph`;
+        }
+        }
+    }
     return(
         <div className="WeatherInfo">
             <div className="row">
@@ -12,7 +20,8 @@ export default function WeatherInfo(props){
 <ul>
     <li><FormatDate date= {props.data.date}/>,
 {props.data.description}</li>
-<li>Humidity:<strong>{props.data.humidity}%</strong> , Wind:{" "}<strong>{props.data.wind}Km/h</strong></li>
+<li className="humidity">Humidity:<strong>{props.data.humidity}%</strong> </li>
+<li className="wind"><strong>Wind:{formatWind()}</strong></li>
 </ul>
 </div>
 <div className="col-lg-6 col-md-6 col-sm-8">
@@ -34,5 +43,4 @@ export default function WeatherInfo(props){
 </div>
 </div>
     );
-    
 }
