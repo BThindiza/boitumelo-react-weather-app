@@ -22,20 +22,38 @@
     font-size: 18px;
     font-weight: 300;
     line-height: 29px;
+    text-align: left;
     list-style: none;
+}
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.float-left{
+    float: left;
+    margin-right: 20px;
+}
+.float-right{
+    float: right;
+    margin-right: 20px;
 }
 .Weather .temperature{
     font-weight: bold;
     font-size: 58px;
   line-height: 62px;
-  margin-left: 5px;
-  font-weight: 400;
-  margin-left: 10px;
+ display: inline-block;
+ text-align: left;
 }
 .Weather .unit{
 font-size: 18px;
 font-weight: 400;
-position: relative;
 line-height: 1;
+vertical-align: top;
+margin-left: 5px;
 top: -30px;
+}
+
+.WeatherForecast-day{
+    margin: 15px;
 }
